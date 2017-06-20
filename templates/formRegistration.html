@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<title>Записване</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Description">
+<meta name="keywords" content="keyword1, keyword2">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" type="image/gif" href="img/icon/zap1.gif">
+<link rel="shortcut icon" type="image/x-icon" href="img/icon/Notes.ico">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+<!--<link rel="stylesheet" href="css/font-awesome.min.css"> -->
+<link rel="stylesheet" type="text/css" href="css/default.css">
+
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/bootstrap-datepicker.bg.js"></script>
+<script src="js/scripts.js"></script>
+
+</head>
+
+<body>
+	<!-- lg: >= 1200px; 
+	md: >= 992px < 1200px; 
+	sm: >= 768px < 992px;
+	xs: < 768px
+	-->
+	<form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>" >
+		<div class="container panel panel-primary top-space">
+			<div class="text-center panel-primary">
+		  		<div class="panel-heading form-group" style="background-color:#4b68e6 !important; border-color:#4b68e6 !important;">
+		  			<h1>ЗАПИСВАНЕ </h1>
+				</div>
+			</div> <!-- FIN PANEL-PRIMARY -->
+			<div class="row">			
+				<div class="col-md-12 col-xs-12">
+					<div id="mcontainer-formRegistration-edit"><?php include ("system/messages.php"); ?></div>
+				</div>
+			</div>
+			<div class="row">
+			<div class="text-center">
+			   		<h4><b>Данни за училището*</b></h4>
+			   		<br/>
+			   	</div>
+    			<div class="col-sm-5 form-group ">
+      				<label class="control-label" for="schoolBranch">Подразделение на училището*</label>
+						<select id="schoolBranch" name="schoolBranch" class="form-control" value="<?= $data['schoolBranch'] ?>">
+							<option value="">Изберете*...</option>
+<?php
+foreach( Nom::$schoolBranches as $key => $value ) {
+?>
+							<option value="<?= $key ?>" <?php if($data['schoolBranch'] == $key) {?>selected <?php } ?>> <?= $value ?></option>
+<?php
+}
+?>
+						</select>
+				</div>
+				<div class="col-sm-5 form-group">
+					<label class="control-label" for="schoolDate">От кога искате да започне училище?*</label>
+					<select id="schoolDate" name="schoolDate" class="form-control" onchange="schoolDateChange();">
+						<option value="">Изберете...</option>
+						<option value="1" <?php if ( $data['schoolDate'] == '1' ) {?> selected <?php } ?>> Веднага</option>
+						<option value="2" <?php if ( $data['schoolDate'] == '2' ) {?>selected<?php } ?>>Септември</option>
+						<option value="3" <?php if ( $data['schoolDate'] == '3' ) {?>selected<?php } ?>>Следващия семестър</option>
+						<option value="4" <?php if ( $data['schoolDate'] == '4' ) {?>selected<?php } ?>>Друга дата</option>
+					</select>
+				</div>
+				<div class="col-xs-12 col-sm-2 form-group">
+					<span id="schoolDateOther-container" style="display:none;">
+					<label class="control-label" for="schoolDateOther">Друга дата</label>
+						<div class="input-group date" data-provide="datepicker" data-date-language="bg">
+	 						<input type="text" data-date-language="bg" name="schoolDateOther" class="form-control" value="<?= $data['schoolDateOther'] ?>">
+				 			<div class="input-group-addon">
+				        		<span class="glyphicon glyphicon-th"></span>
+				      		</div>
+	 					</div>
+					</span>
+	 			</div>
+	 		</div>
+		  	<div class="row">
+			   	<div class="text-center">
+			   		<h4><b>Данни за Детето*</b></h4>
+			   	</div>
+			   	<div class="col-sm-4 form-group">
+		   			<label class="control-label" for="childName" >Име</label>
+		    		<input type="text" minlength="2" name="childName" id="childName" class="form-control" placeholder="Име" value="<?= $data['childName'] ?>">
+		    	</div>
+		    	<div class="col-sm-4 form-group">
+		    		<label class="control-label" for="childSurname">Презиме</label>
+		    		<input type="text" name="childSurname" id="childSurname" class="form-control" placeholder="Презиме" value="<?= $data['childSurname'] ?>">
+		    	</div>
+		    	<div class="col-sm-4 form-group">
+		   			<label class="control-label" for="childFamily">Фамилия</label>
+		    		<input type="text" minlength="2" name="childFamily" id="childFamily" class="form-control" placeholder="Фамилия" value="<?= $data['childFamily'] ?>">
+			    </div>
+			   	<div class="col-sm-4 form-group">
+		   			<label class="control-label" for="childId">ЕГН</label>
+		    		<input type="text" name="childId" id="childId" class="form-control" placeholder="ЕГН" value="<?= $data['childId'] ?>">
+		    	</div>
+		    	<div class="col-sm-4 form-group">
+		   			<label class="control-label" for="childBirdDate">Дата на раждане</label>
+		   			<div class="input-group date" data-provide="datepicker" data-date-language="bg">
+		    				<input type="text" name="childBirdDate" id="childBirdDate" class="form-control" placeholder="Дата на раждане" value="<?= $data['childBirdDate'] ?>">
+		    			<div class="input-group-addon">
+                    		<span class="glyphicon glyphicon-th"></span>
+                  		</div>
+		    		</div>
+		    	</div>
+		    	<div class="col-sm-4 form-group">
+		   			<label class="control-label" for="childBirdPlace">Място на раждане</label>
+		    		<input type="text" name="childBirdPlace" id="childBirdPlace" class="form-control" placeholder="Място на раждане" value="<?= $data['childBirdPlace'] ?>">
+		    	</div>
+		    	<div class="col-sm-4 form-group">
+		    		<label class="control-label" for="bgGrade">Завършен клас в българско училище</label>
+		    		<input type="text" name="bgGrade" id="bgGrade" class="form-control" placeholder="Завършен клас в българско училище" value="<?=$data['bgGrade'] ?>">
+		    	</div>
+		    	<div class="col-sm-4 form-group">
+		    		<label class="control-label" for="instrument">Музикален инструмент(ако свири)</label>
+		    		<input type="text" name="instrument" id="instrument" class="form-control" placeholder="Музикален инструмент" value="<?= $data['instrument'] ?>">
+		    	</div>
+		    	<div class="col-sm-4 form-group">
+		    		<label class="control-label" for="health">Здравословни проблеми (ако има)</label>
+		    		<input type="text" name="health" id="health" class="form-control" placeholder="(алергии, астма или други)" value="<?= $data['health'] ?>">
+		    	</div>
+		    	<div class="col-sm-4 form-group">
+		   			<label class="control-label" for="childEngSchool">Английско училище</label>
+		    		<input type="text" name="childEngSchool" id="childEngSchool" class="form-control" placeholder="Английско училище" value="<?= $data['childEngSchool'] ?>">
+		    	</div>
+		    	<div class="col-sm-4 form-group">
+		    		<label class="control-label" for="grade">Клас</label>
+		    		<input type="text" name="grade" id="grade" class="form-control" placeholder="Клас" value="<?= $data['grade'] ?>">
+		    	</div>
+		    	<div class="col-sm-4 form-group">
+		   			<label class="control-label" for="interests">Интереси</label>
+		    		<textarea name="interests" id="interests" class="form-control" placeholder="Интереси" rows="3" value="<?= $data['interests'] ?>"></textarea>
+		    	</div>
+			</div>
+			<div class="row">
+			  	<div class="text-center">
+			  		<h4><b>Данни за родителя*</b></h4>
+			  	</div>
+			  	<div class="col-sm-4 form-group">
+			  		<label class="control-label" for="parentName">Име</label>
+			    	<input type="text" minlength="2" name="parentName" id="parentName" class="form-control" placeholder="Име" value="<?= $data['parentName'] ?>">
+			  	</div>
+			    <div class="col-sm-4 form-group">
+			    	<label class="control-label" for="parentSurname" >Презиме</label>
+			    	<input type="text" name="parentSurname" id="parentSurname" class="form-control" placeholder="Презиме" value="<?= $data['parentSurname'] ?>" >
+			    </div>
+			    <div class="col-sm-4 form-group">
+			    	<label class="control-label" for="parentFamily">Фамилия</label>
+			    	<input type="text" minlength="2" name="parentFamily" id="parentFamily" class="form-control" placeholder="Фамилия" value="<?= $data['parentFamily'] ?>">
+			    </div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4 form-group">
+			  		<label class="control-label" for="phone">Телефон</label>
+			    	<input type="text" name="phone" id="phone" class="form-control" placeholder="Телефон" value="<?= $data['phone'] ?>">
+			    </div>
+			    <div class="col-sm-4 form-group">
+			    	<label class="control-label" for="mobile">Мобилен телефон</label>
+			    	<input type="text" name="mobile" id="mobile" class="form-control" placeholder="Мобилен телефон" value="<?= $data['mobile'] ?>">
+			    </div>
+			    <div class="col-sm-4 form-group">
+			    	<label class="control-label" for="email">Е-майл</label>
+			    	<input type="email" name="email" id="email" class="form-control" placeholder="Е-майл" value="<?= $data['email'] ?>">
+			    </div>
+			</div>
+			<div class="row">
+				<div class="text-center">
+			  		<h4><b>Адрес*</b></h4>
+			  	</div>
+			  	<div class="col-xs-2 form-group" >
+			  		<label class="control-label" for="number">№</label>
+			  		<input type="text" name="number" id="number" class="form-control" placeholder="№" value="<?= $data['number'] ?>">
+			   	</div>
+			   	<div class="col-xs-10 form-group">
+			   		<label class="control-label" for="street">Улица</label>
+			   		<input type="text" name="street" id="street" class="form-control" placeholder="Улица" value="<?= $data['street'] ?>">
+			   	</div>
+			</div>
+			<div class="row">
+			   	<div class="col-xs-2 form-group ">
+			    	<label class="control-label" for="postCode">ПК</label>
+			    	<input type="text" name="postCode" id="postCode" class="form-control" placeholder="Пощенски код" value="<?= $data['postCode'] ?>">
+			    </div>
+			   	<div class="col-xs-4 form-group">
+			   		<label class="control-label" for="city">Град</label>
+			    	<input type="text" name="city" id="city" class="form-control" placeholder="Град" value="<?= $data['city'] ?>">
+			    </div>
+			    <div class="col-xs-3 form-group">
+			    	<label class="control-label" for="province">Провинция</label>
+			    	<input type="text" name="province" id="province" class="form-control" placeholder="Провинция" value="<?= $data['province'] ?>">
+			    </div>
+			    <div class="col-xs-3 form-group">
+			    	<label class="control-label" for="country">Страна</label>
+			    	<input type="text" name="country" id="country" class="form-control" placeholder="Страна" value="<?= $data['country'] ?>">
+			    </div>
+			</div>		
+		<br/>
+		<br/>
+		<div class="col-xs-12 col-sm-6 text-center form-group">
+			<a href="http://www.boyanmaga.org/moto3/" class="btn btn-lg btn-block btn-danger ">Назад</a>
+		</div>
+		<div class="col-xs-12 col-sm-6 text-center form-group">
+        	<button type="submit" class="btn btn-lg btn-block btn-primary">Изпрати</button>
+        </div>
+    </div>
+    </div> <!-- FIN CONTAINER -->
+	
+<script>
+  $('[data-provide=datepicker]').datepicker({
+    format: 'dd.mm.yyyy',
+    autoclose: true
+  });
+  
+  function schoolDateChange(){
+		if ( $('#schoolDate').val() == '4' ) {
+			$('#schoolDateOther-container').fadeIn();
+		} else $('#schoolDateOther-container').fadeOut();
+  }
+</script>
+
+	</form>
+</body>
+<footer>
+	
+</footer>
+</html>

@@ -1,0 +1,154 @@
+
+<?php
+    $var_table_td = 
+    "border-right: 1px solid #ccc;
+     border-bottom: 1px solid #ccc;
+     padding: 2mm;
+    ";
+
+?>
+<body style="margin: 0 !important; padding: 0 !important;">
+    <div style="height:279mm; width:210mm; page-break-after:always;">
+        <div style="width:180mm; margin:0 15mm;" >
+            <table class="heading" style="width:100%; text-align: center;">
+                <tr>
+                    <td style="background-color: #4b68e6; <?= $var_table_td ?>"><h1 style="color: #fff; font-size: 1.5em;">ЗАПИСВАНЕ № <?= $formId ?></h1></td>
+                <tr>
+            </table> <!-- FIN PANEL-PRIMARY -->
+            <table class="table_body" style="height: 149mm; width:100%; border: 1px solid #ccc; border-spacing:0; border-collapse: collapse; margin-bottom: 20px;" >
+                <tr style="border: 1px solid #ccc">
+                    <td style="<?= $var_table_td ?>">
+                        <b>Имена на детето: </b>
+                    </td>
+                    <td colspan="3" style="<?= $var_table_td ?>"><i><?= $data['childName'] ?> <?= $data['childSurname'] ?> <?= $data['childFamily'] ?></i>
+                    </td>
+                </tr>
+                <tr style="border: 1px solid #ccc">
+                    <td style="<?= $var_table_td ?>"><b>Подразделение на училището</b></td>
+                    <td style="<?= $var_table_td ?>"><i><?= Nom::$schoolBranches[ $data['schoolBranch'] ] ?></i></td>
+                    <td style="<?= $var_table_td ?>"><b>Да започне от:</b></td>
+                    <td style="<?= $var_table_td ?>">
+<?php
+    if ( $data['schoolDate'] == 4 ) {
+
+        echo $data['schoolDateOther'];
+
+    } else {
+
+        echo Nom::$schoolDates[ $data['schoolDate'] ];
+    }
+?>
+                    </td>
+                </tr>
+                <tr style="border: 1px solid #ccc">
+                    <td style="<?= $var_table_td ?>">
+                        <b>ЕГН: </b>
+                    </td>
+                    <td style="<?= $var_table_td ?>">
+                        <i><?= $data['childId'] ?></i>
+                    </td>
+                    <td style="<?= $var_table_td ?>">
+                        <b>Дата на раждане: </b>
+                    </td>
+                    <td style="<?= $var_table_td ?>">
+                        <i><?= $data['childBirdDate'] ?></i>
+                    </td>
+                </tr>
+                <tr style="border: 1px solid #ccc">
+                    <td style="<?= $var_table_td ?>">
+                        <b>Място на раждане: </b>
+                    </td>
+                    <td style="<?= $var_table_td ?>">
+                        <i><?= $data['childBirdPlace'] ?></i>
+                    </td>
+                    <td style="<?= $var_table_td ?>">
+                        <b>Завършен клас в българско училище: </b>
+                    </td>
+                    <td style="<?= $var_table_td ?>">
+                        <i><?=$data['bgGrade'] ?></i>
+                    </td>
+                </tr>
+                <tr style="border: 1px solid #ccc">
+                    <td style="<?= $var_table_td ?>">
+                        <b>Инструмент: </b>
+                    </td>
+                    <td style="<?= $var_table_td ?>">
+                        <i><?= $data['instrument'] ?></i>
+                    </td>
+                    <td style="<?= $var_table_td ?>">
+                        <b>Здравословни проблеми: </b>
+                    </td>
+                    <td style="<?= $var_table_td ?>">
+                        <i><?= $data['health'] ?></i>
+                    </td>
+                </tr>
+                <tr style="border: 1px solid #ccc">
+                    <td style="<?= $var_table_td ?>">
+                        <b>Английско училище: </b>
+                    </td>
+                    <td style="<?= $var_table_td ?>">
+                        <i><?= $data['childEngSchool'] ?></i>
+                    </td>
+                    <td style="<?= $var_table_td ?>">
+                        <b>Клас: </b>
+                    </td>
+                    <td style="<?= $var_table_td ?>">
+                        <i><?= $data['grade'] ?></i>
+                    </td>
+                </tr>
+                <tr style="border: 1px solid #ccc">
+                    <td style="<?= $var_table_td ?>">
+                        <b>Интереси: </b>
+                    </td>
+                    <td colspan="3" style="<?= $var_table_td ?>">
+                        <i><?= $data['interests'] ?></i>
+                    </td>
+                </tr>
+                <tr style="border: 1px solid #ccc">
+                    <td style="<?= $var_table_td ?>">
+                        <b>Имена на родителя: </b>
+                    </td>
+                    <td colspan="3" style="<?= $var_table_td ?>"> <i><?= $data['parentName'] ?> <?= $data['parentSurname'] ?> <?= $data['parentFamily'] ?></i>
+                    </td>
+                </tr>
+                <tr style="border: 1px solid #ccc">
+                    <td style="<?= $var_table_td ?>">
+                        <b>Контакт: </b>
+                    </td>
+                    <td colspan="3" style="<?= $var_table_td ?>"><i><?= $data['phone'] ?> ; <?= $data['mobile'] ?> ; <?= $data['email'] ?></i></td>
+                </tr>
+                <tr style="border: 1px solid #ccc">
+                    <td style="<?= $var_table_td ?>">
+                        <b>Адрес: </b>
+                    </td>
+                    <td colspan="3" style="<?= $var_table_td ?>"> <i><?= $data['number'] ?> <?= $data['street'] ?> ; <?= $data['postCode'] ?> <?= $data['city'] ?> ; <?= $data['province'] ?> ; <?= $data['country'] ?></i>
+                    </td>
+                </tr>
+        </table>
+    </div> 
+ 
+    <htmlpagefooter name="footer">
+        <hr />
+        <div id="footer" style="width:180mm; margin:0 15mm; background-color: #4b68e6;padding-top: 10px;"> 
+            <table style="border: none; width:100%; text-align: center;">
+                <tr >
+                <td colspan="4" style="text-align: center; ">
+                <h2 style="color:#fff !important; text-align: center;">БОЯНЪ МАГА <br /><small><i>- училище за български език и изкуства<i></small></h2>
+                    <p style="color:#fff !important; padding:0 2mm;">
+                    Archer Street, W1D7AX London,
+                    3 мин от Piccadilly Circus stn<br /> 
+                    e-mail: info@boyanmaga.org
+                    www.boyanmaga.org<br />
+                    Телефони:
+                    + 44 771 512 5944
+                    + 44 740 584 6360 
+                    </p>
+                    </td>
+               </tr> 
+            </table>
+        </div>
+    </htmlpagefooter>
+        <sethtmlpagefooter name="footer" value="on" />
+        </div>
+    </div> <!-- FIN DIV-PAGE -->
+</body>

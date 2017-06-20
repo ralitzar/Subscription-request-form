@@ -1,0 +1,35 @@
+
+/*
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: Lucida Sans Unicode,Arial,Helvetica,sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	color: #2f2f2f;
+	background: #ffffff;
+}
+*/
+
+img {
+	border: 0px;
+}
+
+a {
+	color: #7598A2;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #7598A2;
+	text-decoration: underline;
+}
+
+.clear {
+	clear: both;
+}
+.panel-primary>.panel-heading {
+	background-color:#4b68e6 !important;
+	border-color:#4b68e6 !important;
+}
+

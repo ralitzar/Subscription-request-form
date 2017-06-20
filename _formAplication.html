@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<title>Записване</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Description">
+<meta name="keywords" content="keyword1, keyword2">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" type="image/gif" href="img/icon/zap1.gif">
+<link rel="shortcut icon" type="image/x-icon" href="img/icon/Notes.ico">
+
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-datepicker.min.js"></script>
+<script src="js/scripts.js"></script>
+
+</head>
+
+<body>
+	<!-- lg: >= 1200px; 
+	md: >= 992px < 1200px; 
+	sm: >= 768px < 992px;
+	xs: < 768px
+	-->
+	<form>
+		<div class="container panel panel-primary top-space">
+			<div class="text-center panel-primary">
+		  		<div class="panel-heading form-group ">
+		  			<h1>ЗАПИСВАНЕ</h1>
+				</div>
+			</div> <!-- FIN PANEL-PRIMARY -->
+			
+		  	<div class="row">
+			   	<div class="text-center">
+			   		<h4><b>Данни за Детето*</b></h4>
+			   	</div>
+			   	<div class="col-sm-4 has-success form-group">
+		   			<label for="childId">ЕГН</label>
+		    		<input type="text" name="childId" id="childId" class="form-control" placeholder="ЕГН">
+		   			<label for="childName" >Име на детето</label>
+		    		<input type="text" name="childName" id="childName" class="form-control" placeholder="Име">
+		    		<label for="childSurname">Презиме</label>
+		    		<input type="text" name="childSurname" id="childSurname" class="form-control" placeholder="Презиме">
+		   			<label for="childFamily">Фамилия</label>
+		    		<input type="text" name="childFamily" id="childFamily" class="form-control" placeholder="Фамилия">
+			    </div>
+		    	<div class="col-sm-4 has-success form-group">
+		   			<label for="childBirdDate">Дата на раждане</label>
+		    		<input type="date" name="childBirdDate" id="childBirdDate" class="form-control" placeholder="Дата на раждане">
+		   			<label for="childBirdPlace">Място на раждане</label>
+		    		<input type="text" name="childBirdPlace" id="childBirdPlace" class="form-control" placeholder="Място на раждане">
+		    		<label for="bgGrade">Завършен клас в българско училище</label>
+		    		<input type="text" name="bgGrade" id="bgGrade" class="form-control" placeholder="Завършен клас в българско училище">
+		    		<label for="instrument">Музикален инструмент(ако детето свири)</label>
+		    		<input type="text" name="instrument" id="instrument" class="form-control" placeholder="Музикален инструмент">
+		    	</div>
+		    	<div class="col-sm-4 has-success form-group">
+		   			<label for="childEngSchool">Английско училище</label>
+		    		<input type="text" name="childEngSchool" id="childEngSchool" class="form-control" placeholder="Английско училище">
+		    		<label for="grade">Клас</label>
+		    		<input type="text" name="grade" id="grade" class="form-control" placeholder="Клас">
+		    		<label for="health">Здравословни проблеми:</label>
+		    		<input type="text" name="health" id="health" class="form-control" placeholder="(алергии, астма или други)">
+		   			<label for="interests">Интереси</label>
+		    		<input type="text-area" name="interests" id="interests" class="form-control" placeholder="Интереси">
+		    	</div>
+			</div>
+			<div class="row">
+			  	<div class="text-center">
+			  		<h4><b>Данни за родителя*</b></h4>
+			  	</div>
+			  	<div class="col-sm-4 has-success form-group">
+			  		<label for="parentName">Име</label>
+			    	<input type="text" name="parentName" id="parentName" class="form-control" placeholder="Име">
+			  	</div>
+			    <div class="col-sm-4 has-success form-group">
+			    	<label for="parentSurname">Презиме</label>
+			    	<input type="text" name="parentSurname" id="parentSurname" class="form-control" placeholder="Презиме">
+			    </div>
+			    <div class="col-sm-4 has-success form-group">
+			    	<label for="parentFamily">Фамилия</label>
+			    	<input type="text" name="parentFamily" id="parentFamily" class="form-control" placeholder="Фамилия">
+			    </div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4 has-success form-group">
+			  		<label for="phone">Телефон</label>
+			    	<input type="text" name="phone" id="phone" class="form-control" placeholder="Телефон">
+			    </div>
+			    <div class="col-sm-4 has-success form-group">
+			    	<label for="mobile">Мобилен телефон</label>
+			    	<input type="text" name="mobile" id="mobile" class="form-control" placeholder="Мобилен телефон">
+			    </div>
+			    <div class="col-sm-4 has-success form-group">
+			    	<label for="email">Е-майл</label>
+			    	<input type="text" name="email" id="email" class="form-control" placeholder="Е-майл">
+			    </div>
+			</div>
+			<div class="row">
+				<div class="text-center">
+			  		<h4><b>Адрес*</b></h4>
+			  	</div>
+			  	<div class="col-xs-2 has-success form-group" >
+			  		<label for="number">№</label>
+			  		<input type="text" name="number" id="number" class="form-control" placeholder="№">
+			   	</div>
+			   	<div class="col-xs-10 has-success form-group">
+			   		<label for="street">Улица</label>
+			   		<input type="text" name="street" id="street" class="form-control" placeholder="Улица">
+			   	</div>
+			</div>
+			<div class="row">
+			   	<div class="col-xs-2 has-success form-group ">
+			    	<label for="postCode">Пощ. код</label>
+			    	<input type="text" name="postCode" id="postCode" class="form-control" placeholder="Пощенски код">
+			    </div>
+			   	<div class="col-xs-4 has-success form-group">
+			   		<label for="city">Град</label>
+			    	<input type="text" name="city" id="city" class="form-control" placeholder="Град">
+			    </div>
+			    <div class="col-xs-3 has-success form-group">
+			    	<label for="province">Провинция</label>
+			    	<input type="text" name="province" id="province" class="form-control" placeholder="Провинция">
+			    </div>
+			    <div class="col-xs-3 has-success form-group">
+			    	<label for="country">Страна</label>
+			    	<input type="text" name="country" id="country" class="form-control" placeholder="Страна">
+			    </div>
+			</div>
+		  	
+		  	<div class="row">
+		    	<div class="col-sm-5 has-success form-group">
+		      		<label for="schoolBranch">Подразделение на училището*</label>
+					<select id="schoolBranch" class="form-control">
+						<option value="">Изберете...</option>
+						<option value="1">Soho Parish School-London, W1D 7LFВ</option>
+						<option value="2">Bromley - London, BR1 1EX</option>
+						<option value="3">Ealing Town Hall-London, W5 2BY</option>
+						<option value="4">Cricklewood - London, NW2 1BU</option>
+						<option value="5">Woodford - London, E18 2QS</option>
+					</select>
+				</div>
+				<div class="col-sm-5 has-success form-group">
+					<label for="schoolDate">От кога искате да започне училище?*</label>
+					<select id="schoolDate" class="form-control">
+						<option value="">Изберете...</option>
+						<option value="1">Веднага</option>
+						<option value="2">От септември</option>
+						<option value="3">От следващия семестър</option>
+						<option value="4">Друга дата</option>
+					</select>
+				</div>
+				<div class="col-xs-12 col-sm-2 has-success form-group">
+					<label for="schoolDate">Друга дата</label>
+			 		<input type="date" name="schoolDate" class="form-control">
+			 	</div>
+			 </div>				
+		<br/>
+		<br/>
+		<div class="col-xs-12 col-sm-6 text-center form-group">
+			<button type="reset" class="btn btn-lg btn-block btn-danger ">Откажи</button>
+		</div>
+		<div class="col-xs-12 col-sm-6 text-center form-group">
+        	<button type="submit" class="btn btn-lg btn-block btn-primary">Изпрати</button>
+        </div>
+        </div> <!-- FIN CONTAINER -->
+	</form>
+</body>
+<footer>
+	
+</footer>
+</html>

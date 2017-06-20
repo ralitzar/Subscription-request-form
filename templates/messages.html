@@ -1,0 +1,41 @@
+
+<?php
+if ($errors) {
+?>
+<div class="alert alert-danger <?= $_MESSAGE_STYLE ? " ".$_MESSAGE_STYLE : "" ?>">
+    <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+        <?php
+			foreach (Form::errors( $errors ) as $error) {
+		?>
+        <p><b><?= $error ?></b></p>
+        <?php
+			}
+		?>
+</div>
+
+	<!-- <div class="alert alert-danger alert-dismissable<?= $_MESSAGE_STYLE ? " ".$_MESSAGE_STYLE : "" ?>">
+		<ul class="errors">
+	<?php
+		foreach (Form::errors( $errors ) as $error) {
+	?>
+	<li><b><?= $error ?></b></li>
+	<?php
+		}
+	?>
+	</ul>
+	</div> -->
+
+<?php
+} else if ($message) {
+?>
+<div class="alert alert-success alert-dismissable<?= $_MESSAGE_STYLE ? " ".$_MESSAGE_STYLE : "" ?>">
+<a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+<b><?= $message ?></b>
+</div>
+<?php
+} else if ($redirect) {
+?>
+<span style="display:none;">@redirect:<?= $redirect ?>/:redirect</span>
+<?php
+}
+?>
